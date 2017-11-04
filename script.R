@@ -1,5 +1,7 @@
+##load tidy packages
 library(tidyverse)
 
+##download the files from the website
 download.file("http://fmichonneau.github.io/2017-11-03-gwu/gapminder.csv","data/gapminder.csv")
 
 gapminder <- read.csv("data/gapminder.csv")
