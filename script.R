@@ -7,7 +7,6 @@ gapminder <- read.csv("data/gapminder.csv")
 ##Challenge:
 ##Calculate the average life expectancy by continent
 ##(and save it in a variable called life_exp_continent)
-
 life_exp_continent <- gapminder %>% 
   group_by(continent) %>% 
   summarise(
@@ -16,7 +15,6 @@ life_exp_continent <- gapminder %>%
 
 ##Challenge
 ##get the life expectancy by year for Canada
-
 life_exp_canada <- gapminder %>% 
   filter(country == "Canada") %>% 
   select(year,lifeExp)
@@ -27,4 +25,17 @@ mean_gdp_per_conti_1972 <- gapminder %>%
   group_by(continent) %>% 
   summarize(
     mean_gdp = mean(gdpPercap)
+  )
+
+##Get the population size through time for China
+pop_size_china <- gapminder %>% 
+  filter(country=="China") %>% 
+  select(year,pop)
+
+##Get the maxmum population size per country for the year 2007
+max_pop_per_coun_2007 <- gapminder %>% 
+  filter(year == 2007) %>% 
+  group_by(country) %>% 
+  summarise(
+    max_pop = max(pop)
   )
